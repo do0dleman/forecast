@@ -1,3 +1,4 @@
+import MediaContextProvider from '../../components/mediaContextProvider/MediaContextProvider'
 import WeatherContextProvider from '../../components/WeatherContextProvider/WeatherContextProvider'
 import Forecast from '../forecast/Forecast'
 import Header from '../header/Header'
@@ -7,10 +8,12 @@ function App() {
 
   return (
     <main>
-      <WeatherContextProvider>
-        <Header />
-        <Forecast />
-      </WeatherContextProvider>
+      <MediaContextProvider>
+        <WeatherContextProvider>
+          <Header />
+          <Forecast />
+        </WeatherContextProvider>
+      </MediaContextProvider>
     </main>
   )
 }

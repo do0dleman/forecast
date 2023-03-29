@@ -19,6 +19,17 @@ body {
   color:var(--secondary-color);
   font-size: 1.8em;
   font-family: Open Sans;
+  --screen: lg;
+
+  @media(max-width: 992px) {
+    --screen: md;
+  }
+  @media(max-width: 750px) {
+    --screen: sm;
+  }
+  @media(max-width: 470px) {
+    --screen: xs;
+  }
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;

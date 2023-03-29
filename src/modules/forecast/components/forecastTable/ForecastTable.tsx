@@ -1,5 +1,6 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Box from '../../../../components/Box/Box'
+import mediaContext from '../../../../contexts/MediaContexts'
 import weatherContext from '../../../../contexts/WeatherContext'
 import getHoursDatas from '../../../../utils/getHoursDatas'
 import timeToDate from '../../../../utils/timeToDate'
@@ -13,11 +14,23 @@ export default function ForecastTable(props: ForecastTableProps) {
     const { children, ...rest } = props
 
     const { currentData } = useContext(weatherContext)
+    const { media } = useContext(mediaContext)
+
+    const [step, setStep] = useState(5)
 
     const firstHour = 0
     const lastHour = 23
+
+    useEffect(() => {
+        if (media == 'sm' || 'xs') {
+            setStep(5)
+        } else {
+            setStep(3)
+        }
+    }, [media])
     let HoursData = currentData.hourly
-    let HoursDatas = getHoursDatas(currentData.hourly, firstHour, lastHour)
+    let HoursDatas = getHoursDatas(
+        currentData.hourly, firstHour, lastHour, step)
     return (
         <Box className='forecast__table weather-table' {...rest}>
             <h4 className="weather-table__main-title">

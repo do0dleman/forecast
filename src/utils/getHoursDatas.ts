@@ -1,12 +1,14 @@
 import DataFile from '../assets/data.json'
+import timeToDate from './timeToDate'
 
 export default function getHoursDatas(
     HoursData: typeof DataFile.hourly,
     firstHour: number,
-    lastHour: number) {
+    lastHour: number,
+    step?: number) {
     let HoursDatas = [] as any[]
 
-    const step = 3
+    if (!step) step = 3
 
     const sumKeys = [
         'precipitation',
@@ -22,23 +24,28 @@ export default function getHoursDatas(
         let stepData = {} as any
         for (const key in HoursData) {
             if (sumKeys.includes(key)) {
-                stepData[key] = (HoursData[key as keyof typeof HoursData] as number[])
+                stepData[key] = (
+                    HoursData[key as keyof typeof HoursData] as number[])
                     .slice(i * step, i * step + 2)
-                    .reduce((partialSum: number, item: number) => partialSum + item, 0)
+                    .reduce((partialSum: number, item: number) =>
+                        partialSum + item, 0)
                 continue
             }
             if (averageKeys.includes(key)) {
                 stepData[key] = Math.round(
                     (HoursData[key as keyof typeof HoursData] as number[])
                         .slice(i * step, i * step + 2)
-                        .reduce((partialSum: number, item: number) => partialSum + item, 0) / step * 10) / 10
+                        .reduce((partialSum: number, item: number) =>
+                            partialSum + item, 0) / step * 10) / 10
                 continue
             }
             if (key === 'time') {
-                stepData[key] = HoursData[key as keyof typeof HoursData][i * step + step - 1]
+                stepData[key] = HoursData
+                [key as keyof typeof HoursData][i * step + step - 1]
                 continue
             }
-            stepData[key] = HoursData[key as keyof typeof HoursData][i * step]
+            stepData[key] = HoursData
+            [key as keyof typeof HoursData][i * step]
         }
         HoursDatas.push(stepData)
     }

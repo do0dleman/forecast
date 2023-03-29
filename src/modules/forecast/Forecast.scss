@@ -1,17 +1,49 @@
 .forecast {
-
+    overflow: hidden;
     &__container {
-        display: grid;
-        grid-template-columns: 1fr 2.5fr;
-        gap: .4em;
+        flex-direction: row;
+        justify-content: space-between;
         position: relative;
+        @media(max-width: 1200px) {
+            flex-direction: column;
+        }
     }
 
     &__time {
         font-size: .55em;
         color: var(--sub-color);
     }
-    &__card {
-        grid-column-start: 1;
+    &__weather-cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 0.6em;
+        @media(max-width: 1200px) {
+            flex-direction: row;
+            margin-bottom: 0.6em;
+            margin-right: 0;
+        }
+        @media(max-width: 750px) {
+            margin-bottom: 0.3em;
+        }
     }
+    &__card {
+        @media(max-width: 1200px) {
+            flex: 1 1;
+            &:not(:last-child) {
+                margin-right: 0.6em;
+            }
+        }
+        @media(max-width: 750px) {
+            &:not(:last-child) {
+                margin-right: 0.3em;
+            }
+        }
+    }
+    &__table {
+        @media(max-width: 470px) {
+            font-size: .7em;
+        }
+        flex: 0 1 80%;
+    } 
 }
