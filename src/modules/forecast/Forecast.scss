@@ -1,0 +1,17 @@
+.forecast {
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 2.5fr;
+        gap: .4em;
+        position: relative;
+    }
+
+    &__time {
+        font-size: .55em;
+        color: var(--sub-color);
+    }
+    &__card {
+        grid-column-start: 1;
+    }
+}

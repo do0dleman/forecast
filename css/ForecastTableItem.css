@@ -1,0 +1,70 @@
+.weather-table__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+}
+.weather-table__item:not(:last-child) {
+  margin-right: 0.4em;
+}
+.weather-table__title {
+  font-weight: 500;
+}
+.weather-table section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.weather-table section:not(:first-child) {
+  margin-top: 1em;
+}
+.weather-table__temperature-item {
+  margin-top: 0.6em;
+}
+.weather-table__section-header {
+  position: absolute;
+  font-size: 0.6em;
+  top: 0em;
+  transform: translate(0, -80%);
+  left: 0;
+  width: 200%;
+  color: var(--sub-color);
+}
+.weather-table__icon {
+  margin-top: 0.3em;
+  font-size: 1.8em;
+  position: relative;
+}
+.weather-table__icon::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+  background-color: var(--sub-color);
+  z-index: -1;
+  filter: blur(0.45em);
+}
+.weather-table__wind-direction {
+  font-size: 2.2em;
+  position: relative;
+}
+.weather-table__wind-direction::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+  background-color: var(--sub-color);
+  z-index: -1;
+  filter: blur(0.45em);
+}
+.weather-table__speed {
+  margin-top: 0.2em;
+}/*# sourceMappingURL=ForecastTableItem.css.map */

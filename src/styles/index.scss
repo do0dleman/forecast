@@ -1,0 +1,26 @@
+@import './wi/weather-icons.min';
+@import './wi/weather-icons-wind.min.scss';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
+body {
+  --background-color: hsl(218, 10%, 11%);
+  --secondary-background-color: hsla(218, 10%, 16%, 0.7);
+  --secondary-color: #ededed;
+  --sub-color: #acacac;
+  --active-color: hsl(218, 72%, 52%);
+  --active-color-2: hsl(280, 87%, 52%);
+  --active-color-hover: hsl(218, 72%, 48%);
+  --active-color-hover-2: hsl(280, 87%, 48%);
+  --active-color-active: hsl(218, 72%, 43%);
+  --active-color-active-2: hsl(280, 87%, 43%);
+  --wave-color: #003F7C;
+  --border-radius: 1.4em;
+  
+  background-color: var(--background-color);
+  color:var(--secondary-color);
+  font-size: 1.8em;
+  font-family: Open Sans;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-size: 1em;
+}

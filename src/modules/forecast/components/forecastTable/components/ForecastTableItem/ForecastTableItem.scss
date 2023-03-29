@@ -1,0 +1,72 @@
+.weather-table {
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1 1 auto;
+        &:not(:last-child) {
+            margin-right: 0.4em;
+        }
+    }
+    &__title {
+        font-weight: 500;
+    }
+    section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        &:not(:first-child) {
+            margin-top: 1em;
+        }
+    }
+    &__temperature-item {
+        margin-top: .6em;
+    }
+    &__section-header {
+        position: absolute;
+        font-size: 0.6em;
+        top: 0em;
+        transform: translate(0, -80%);
+        left: 0;
+        width: 200%;
+        color: var(--sub-color);
+    }
+    &__icon {
+        margin-top: .3em;
+        font-size: 1.8em;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            background-color: var(--sub-color);
+            z-index: -1;
+            filter: blur(.45em);
+        }
+    }
+    &__wind-direction {
+        font-size: 2.2em;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            background-color: var(--sub-color);
+            z-index: -1;
+            filter: blur(.45em);
+        }
+    }
+    &__speed {
+        margin-top: 0.2em;
+    }
+}

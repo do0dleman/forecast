@@ -1,0 +1,26 @@
+.active-item {
+  font-size: 1.5em;
+  width: 100%;
+}
+.active-item div {
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0.03em 0.12em -0.01em var(--active-color-active-2);
+  background-image: linear-gradient(125deg, var(--active-color), var(--active-color-2));
+  border-radius: 0.4em;
+  font-size: 0.7em;
+  padding: 0.1em 0;
+}
+
+.active-item2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.2em;
+}
+.active-item2 div:nth-child(1) {
+  background-image: linear-gradient(215deg, var(--active-color), var(--active-color-2));
+  transform: translate(0, 5%);
+}
+.active-item2 div:nth-child(2) {
+  transform: translate(0, -5%);
+}/*# sourceMappingURL=ActiveItem.css.map */

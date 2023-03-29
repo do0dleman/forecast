@@ -1,0 +1,9 @@
+.--box {
+  background-color: var(--secondary-background-color);
+  -webkit-backdrop-filter: blur(0.2em);
+          backdrop-filter: blur(0.2em);
+  padding: 0.6em;
+  border-width: 4px;
+  border-radius: var(--border-radius);
+  position: relative;
+}/*# sourceMappingURL=Box.css.map */

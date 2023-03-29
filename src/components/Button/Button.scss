@@ -1,0 +1,20 @@
+.--button {
+    font-size: 2em;
+    color: var(--secondary-color);
+    background-color: var(--active-color);
+    border-radius: .8em;
+    border: none;
+    padding: 0.35em 0.8em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0.2em var(--active-color);
+    &:hover {
+      background-color: var(--active-color-hover);
+      box-shadow: 0 0 0.15em  var(--active-color-hover);
+      transition: all 0.3s ease;
+    }
+    &:active {
+      background-color: var(--active-color-active);
+      box-shadow: 0 0 0.05em  var(--active-color-active);
+    }
+  }

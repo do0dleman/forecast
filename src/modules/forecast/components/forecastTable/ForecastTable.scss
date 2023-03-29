@@ -1,0 +1,19 @@
+.weather-table {
+    
+    grid-row: 1/ span 3;
+    grid-column-start: 2;
+	overflow: hidden;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+    }
+    &__main-title {
+        font-size: 1.4em;
+        margin-bottom: 0.4em;
+        // text-shadow: 0 0 1em var(--sub-color);
+        text-align: center;
+    }
+}

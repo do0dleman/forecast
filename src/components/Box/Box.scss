@@ -1,0 +1,9 @@
+.--box {
+    background-color: var(--secondary-background-color);
+	backdrop-filter: blur(.2em);
+    padding: .6em;
+    border-width: 4px;
+    border-radius: var(--border-radius);
+    position: relative;
+
+}
