@@ -108,7 +108,7 @@ export default function Forecast(props: ForecastProps) {
                 </div>
                 <ForecastTable />
                 {circleStyles.map((style) =>
-                    <BgCircle style={style} />)}
+                    <BgCircle key={JSON.stringify(style)} style={style} />)}
             </Container>
         </section>
     )

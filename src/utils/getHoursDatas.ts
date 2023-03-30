@@ -24,11 +24,11 @@ export default function getHoursDatas(
         let stepData = {} as any
         for (const key in HoursData) {
             if (sumKeys.includes(key)) {
-                stepData[key] = (
+                stepData[key] = Math.round((
                     HoursData[key as keyof typeof HoursData] as number[])
                     .slice(i * step, i * step + 2)
                     .reduce((partialSum: number, item: number) =>
-                        partialSum + item, 0)
+                        partialSum + item, 0) * 10) / 10
                 continue
             }
             if (averageKeys.includes(key)) {

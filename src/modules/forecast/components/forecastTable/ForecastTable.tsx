@@ -22,7 +22,7 @@ export default function ForecastTable(props: ForecastTableProps) {
     const lastHour = 23
 
     useEffect(() => {
-        if (media == 'sm' || 'xs') {
+        if (media == 'sm' || media == 'xs') {
             setStep(5)
         } else {
             setStep(3)
