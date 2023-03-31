@@ -2,20 +2,12 @@ import ActiveItem from '../../../../../../ui/activeItems/ActiveItem';
 import Wave from '../../../../../../ui/wave/Wave';
 import WindDirection from '../../../../../../ui/windDirection/WindDirection';
 import numToTemp from '../../../../../../utils/numToTemp';
+import IHourData from '../../../../interfaces/IHourData';
 import WeatherIcon from '../../../weatherIcon/WeatherIcon';
 import './ForecastTableItem.scss'
 
 interface ForecastTableItemProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLDivElement> {
-    hourData: {
-        time: string;
-        temperature_2m: number;
-        relativehumidity_2m: number;
-        apparent_temperature: number;
-        precipitation: number;
-        weathercode: number;
-        windspeed_10m: number;
-        winddirection_10m: number
-    }
+    hourData: IHourData
     showName?: boolean
     maxTemp: number
     minTemp: number
@@ -38,9 +30,9 @@ export default function ForecastTableItem(props: ForecastTableItemProps) {
             <section className="weather-table__temperature">
                 <ActiveItem
                     style={{
-                        transform: `translate(0, -${1 * Math.abs(
-                            (minTemp - hourData.temperature_2m)
-                        ) / Math.abs((maxTemp - minTemp))}em)`
+                        transform: `translate(0, -${.9 *
+                            (hourData.temperature_2m - minTemp)
+                            / (maxTemp - minTemp)}em)`
                     }}
                     className='weather-table__temperature-item'
                     item={numToTemp(hourData.temperature_2m)} />

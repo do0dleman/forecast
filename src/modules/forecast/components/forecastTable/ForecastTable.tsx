@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import Box from '../../../../components/Box/Box'
 import mediaContext from '../../../../contexts/MediaContexts'
 import weatherContext from '../../../../contexts/WeatherContext'
-import getHoursDatas from '../../../../utils/getHoursDatas'
+import getHoursDatas from '../../../../utils/getHoursDatas/getHoursDatas'
 import timeToDate from '../../../../utils/timeToDate'
 import ForecastTableItem from './components/ForecastTableItem/ForecastTableItem'
 import './ForecastTable.scss'
@@ -41,8 +41,12 @@ export default function ForecastTable(props: ForecastTableProps) {
                     <ForecastTableItem
                         showName={i === 0}
                         key={hourData.time}
-                        maxTemp={Math.max(...HoursData.temperature_2m.slice(0, lastHour + 1))}
-                        minTemp={Math.min(...HoursData.temperature_2m.slice(0, lastHour + 1))}
+                        maxTemp={Math.max(
+                            ...(HoursData.temperature_2m
+                                .slice(0, lastHour + 1)))}
+                        minTemp={Math.min(
+                            ...(HoursData.temperature_2m
+                                .slice(0, lastHour + 1)))}
                         hourData={hourData} />
                 )}
             </div>

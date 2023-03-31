@@ -7,7 +7,7 @@
     padding: .4em 0;
     position: relative;
     overflow: hidden;
-    text-shadow: 0 0 .9em var(--sub-color);
+    text-shadow: 0 0 .6em var(--sub-color);
     svg {
         z-index: -1;
         width: 200%;
@@ -15,7 +15,7 @@
         top: 0%;
         left:-100%;
         fill: var(--wave-color);
-        animation: wave 10s linear infinite;
+        animation: wave 10s cubic-bezier(0.37, 0, 0.63, 1) infinite;
     }
     svg:nth-child(2) {
         left: 99%;
@@ -24,9 +24,12 @@
 }
 @keyframes wave {
     0% {
-        transform: translate(0, 0);
+        transform: translate(50%, 0);
+    }
+    50% {
+        transform: translate(0%, 0);
     }
     100% {
-        transform: translate(-100%, 0);
+        transform: translate(50%, 0);
     }
 }

@@ -1,12 +1,14 @@
-import DataFile from '../assets/data.json'
-import timeToDate from './timeToDate'
+import DataFile from '../../assets/data.json'
+import IHourData from '../../modules/forecast/interfaces/IHourData'
+import calcIntervalAverage from './calcIntervalAverage'
+import calcIntervalSum from './calcIntervalSum'
 
 export default function getHoursDatas(
     HoursData: typeof DataFile.hourly,
     firstHour: number,
     lastHour: number,
     step?: number) {
-    let HoursDatas = [] as any[]
+    let HoursDatas = [] as IHourData[]
 
     if (!step) step = 3
 
@@ -24,24 +26,25 @@ export default function getHoursDatas(
         let stepData = {} as any
         for (const key in HoursData) {
             if (sumKeys.includes(key)) {
-                stepData[key] = Math.round((
-                    HoursData[key as keyof typeof HoursData] as number[])
-                    .slice(i * step, i * step + 2)
-                    .reduce((partialSum: number, item: number) =>
-                        partialSum + item, 0) * 10) / 10
+                stepData[key] = calcIntervalSum(
+                    HoursData[key as
+                    keyof typeof HoursData] as number[],
+                    i, step
+                )
                 continue
             }
             if (averageKeys.includes(key)) {
-                stepData[key] = Math.round(
-                    (HoursData[key as keyof typeof HoursData] as number[])
-                        .slice(i * step, i * step + 2)
-                        .reduce((partialSum: number, item: number) =>
-                            partialSum + item, 0) / step * 10) / 10
+                stepData[key] = calcIntervalAverage(
+                    HoursData[key as
+                    keyof typeof HoursData] as number[],
+                    i, step
+                )
                 continue
             }
             if (key === 'time') {
                 stepData[key] = HoursData
-                [key as keyof typeof HoursData][i * step + step - 1]
+                [key as keyof typeof HoursData]
+                [i * step + step - 1]
                 continue
             }
             stepData[key] = HoursData
