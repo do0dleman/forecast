@@ -1,14 +1,14 @@
 # Forecast web app
 
-This project uses [open-meteo api](https://open-meteo.com/) for forecast data.
+This project uses [open-meteo api](https://open-meteo.com/) for the forecast data.
 
 <!-- ## Github pages  -->
 
 <!-- You can see and use the app on github pages [here](https://do0dleman.github.io/colors/). -->
 ## Upcoming updates
 
-* Soon will be added ability to change measurment units.
-* Soon will be added forecast data auto refresh
+* Soon will be added the ability to change measurment units.
+* Soon will be added the forecast data auto refresh
 
 ## License
 

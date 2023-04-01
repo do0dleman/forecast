@@ -22,7 +22,7 @@ export default function getHoursDatas(
         'windspeed_10m',
         'winddirection_10m'
     ]
-    for (let i = firstHour; i <= lastHour / step; i += 1) {
+    for (let i = firstHour / step; i <= lastHour / step; i += 1) {
         let stepData = {} as any
         for (const key in HoursData) {
             if (sumKeys.includes(key)) {

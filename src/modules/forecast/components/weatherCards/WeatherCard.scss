@@ -1,9 +1,10 @@
-
 .weather-card {
     display: flex;
     font-size: 1em;
 	justify-content: space-between;
 	overflow: hidden;
+	transition: all 0.2s ease-in-out;
+	user-select: none;
 	&__title {
 		@media(max-width: 750px) {
 			display: none;
@@ -56,5 +57,12 @@
 		@media(max-width: 750px) {
 			display: none;
 		}
+	}
+}
+.weather-card-active {
+	cursor: pointer;
+	&:active, &:hover {
+		transform: scale(102%);
+		backdrop-filter: blur(0.35em);
 	}
 }
