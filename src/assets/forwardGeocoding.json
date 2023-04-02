@@ -1,0 +1,192 @@
+[
+    {
+        "place_id": 288717669,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "relation",
+        "osm_id": 13048688,
+        "boundingbox": [
+            "56.8573462",
+            "57.0859815",
+            "23.9325504",
+            "24.3245042"
+        ],
+        "lat": "56.9493977",
+        "lon": "24.1051846",
+        "display_name": "Рига, Видземе, Латвия",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.6665944463333944
+    },
+    {
+        "place_id": 288770524,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "relation",
+        "osm_id": 10255955,
+        "boundingbox": [
+            "26.5431569",
+            "26.7035804",
+            "85.3530407",
+            "85.5301093"
+        ],
+        "lat": "26.6238092",
+        "lon": "85.39828676654051",
+        "display_name": "Riga, Sitamarhi, Бихар, Индия",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.56
+    },
+    {
+        "place_id": 287311443,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "relation",
+        "osm_id": 2763766,
+        "boundingbox": [
+            "43.0364671",
+            "43.1293141",
+            "-77.951264",
+            "-77.8177411"
+        ],
+        "lat": "43.07741205000001",
+        "lon": "-77.87615724255798",
+        "display_name": "Riga, округ Монро, Нью-Йорк, 14428, Соединённые Штаты Америки",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.51
+    },
+    {
+        "place_id": 464566,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "node",
+        "osm_id": 158409352,
+        "boundingbox": [
+            "43.049506",
+            "43.089506",
+            "-77.903898",
+            "-77.863898"
+        ],
+        "lat": "43.069506",
+        "lon": "-77.883898",
+        "display_name": "Riga, округ Монро, Нью-Йорк, 14428, Соединённые Штаты Америки",
+        "class": "place",
+        "type": "village",
+        "importance": 0.41047010844319975
+    },
+    {
+        "place_id": 60596242,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "node",
+        "osm_id": 5526472163,
+        "boundingbox": [
+            "38.5116068",
+            "38.5117068",
+            "72.4676301",
+            "72.4677301"
+        ],
+        "lat": "38.5116568",
+        "lon": "72.4676801",
+        "display_name": "Riga, Рушанский район, Горно-Бадахшанская автономная область, Таджикистан",
+        "class": "natural",
+        "type": "peak",
+        "importance": 0.41000000000000003
+    },
+    {
+        "place_id": 10526700,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "node",
+        "osm_id": 1075277837,
+        "boundingbox": [
+            "26.6362002",
+            "26.6762002",
+            "85.4113283",
+            "85.4513283"
+        ],
+        "lat": "26.6562002",
+        "lon": "85.4313283",
+        "display_name": "Riga, Sitamarhi, Бихар, 843327, Индия",
+        "class": "place",
+        "type": "village",
+        "importance": 0.385
+    },
+    {
+        "place_id": 436952,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "node",
+        "osm_id": 154399018,
+        "boundingbox": [
+            "41.7892159",
+            "41.8292159",
+            "-83.8449404",
+            "-83.8049404"
+        ],
+        "lat": "41.8092159",
+        "lon": "-83.8249404",
+        "display_name": "Riga, Riga Township, Lenawee County, Мичиган, 49276, Соединённые Штаты Америки",
+        "class": "place",
+        "type": "village",
+        "importance": 0.385
+    },
+    {
+        "place_id": 73275406,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "node",
+        "osm_id": 6815657486,
+        "boundingbox": [
+            "28.4141004",
+            "28.4541004",
+            "95.0219414",
+            "95.0619414"
+        ],
+        "lat": "28.4341004",
+        "lon": "95.0419414",
+        "display_name": "Riga, Riga EAC, Siang district, Аруначал-Прадеш, Индия",
+        "class": "place",
+        "type": "village",
+        "importance": 0.385
+    },
+    {
+        "place_id": 75792150,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "node",
+        "osm_id": 7153128276,
+        "boundingbox": [
+            "29.5088114",
+            "29.5488114",
+            "81.7747746",
+            "81.8147746"
+        ],
+        "lat": "29.5288114",
+        "lon": "81.7947746",
+        "display_name": "Riga, Hyanglu, Khatyad, Mugu, Karnali Pradesh, Непал",
+        "class": "place",
+        "type": "village",
+        "importance": 0.385
+    },
+    {
+        "place_id": 3775868,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "powered_by": "Map Maker: https://maps.co",
+        "osm_type": "node",
+        "osm_id": 473101556,
+        "boundingbox": [
+            "14.1741",
+            "14.2141",
+            "9.555",
+            "9.595"
+        ],
+        "lat": "14.1941",
+        "lon": "9.575",
+        "display_name": "Riga, Mirriah, Зиндер, Нигер",
+        "class": "place",
+        "type": "village",
+        "importance": 0.385
+    }
+]

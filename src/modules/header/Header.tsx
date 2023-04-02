@@ -1,16 +1,25 @@
+import Box from '../../components/Box/Box'
+import Container from '../../components/Container/Container'
+import BgCircle from '../../ui/bgCircle/BgCircle'
+import CoordinatePicker from './components/coordinatePicker/CoordinatePicker'
+import SettingsButton from './components/settingsButton/SettingButtons'
 import './Header.scss'
 
-interface HeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLDivElement> {
+export default function Header() {
 
-}
-export default function Header(props: HeaderProps) {
-
-    const { className, children, ...rest } = props
 
     return (
-        <header className='header' {...rest}>
-            {children}
-
+        <header className='header' >
+            <Container className='header__container'>
+                <Box className='header__box'>
+                    <CoordinatePicker />
+                    <SettingsButton />
+                </Box>
+                <BgCircle style={{
+                    top: '-70%',
+                    left: '32%'
+                }} />
+            </Container>
         </header>
     )
 }

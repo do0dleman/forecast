@@ -1,20 +1,23 @@
 .--button {
-    font-size: 2em;
+    font-size: inherit;
     color: var(--secondary-color);
-    background-color: var(--active-color);
-    border-radius: .8em;
+    box-shadow: 0 .03em .12em -.01em var(--active-color-active-2);
+    background-image: linear-gradient(125deg, 
+    var(--active-color), var(--active-color-2));
+    border-radius: .4em;
     border: none;
     padding: 0.35em 0.8em;
     cursor: pointer;
+    // transition: transform 0.3s ease,
+    // background-image 0.3s ease;
     transition: all 0.3s ease;
-    box-shadow: 0 0 0.2em var(--active-color);
     &:hover {
-      background-color: var(--active-color-hover);
-      box-shadow: 0 0 0.15em  var(--active-color-hover);
-      transition: all 0.3s ease;
+      transform: scale(102%);
     }
     &:active {
-      background-color: var(--active-color-active);
-      box-shadow: 0 0 0.05em  var(--active-color-active);
+      background-image: linear-gradient(125deg, 
+      var(--active-color-active), 
+      var(--active-color-active-2));
+      transform: scale(98%);
     }
   }

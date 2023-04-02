@@ -3,7 +3,8 @@
     font-size: 1em;
 	justify-content: space-between;
 	overflow: hidden;
-	transition: all 0.2s ease-in-out;
+	transition: transform 0.2s ease-in-out,
+	backdrop-filter 0.2s ease-in-out;
 	user-select: none;
 	&__title {
 		@media(max-width: 750px) {

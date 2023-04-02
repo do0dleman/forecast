@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Box from '../../../../components/Box/Box'
+import weatherContext from '../../../../contexts/WeatherContext'
 import ActiveItem from '../../../../ui/activeItems/ActiveItem'
 import ActiveItem2 from '../../../../ui/activeItems/ActiveItem2'
 import './WeatherCard.scss'

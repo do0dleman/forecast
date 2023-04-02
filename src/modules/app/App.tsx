@@ -1,4 +1,5 @@
-import MediaContextProvider from '../../components/mediaContextProvider/MediaContextProvider'
+import MediaContextProvider from '../../components/MediaContextProvider/MediaContextProvider'
+import SettingsContextProvider from '../../components/SettingsContext/SettingsContextProvider'
 import WeatherContextProvider from '../../components/WeatherContextProvider/WeatherContextProvider'
 import Forecast from '../forecast/Forecast'
 import Header from '../header/Header'
@@ -7,14 +8,16 @@ import './App.scss'
 function App() {
 
   return (
-    <main>
+    <SettingsContextProvider>
       <MediaContextProvider>
         <WeatherContextProvider>
           <Header />
-          <Forecast />
+          <main>
+            <Forecast />
+          </main>
         </WeatherContextProvider>
       </MediaContextProvider>
-    </main>
+    </SettingsContextProvider>
   )
 }
 

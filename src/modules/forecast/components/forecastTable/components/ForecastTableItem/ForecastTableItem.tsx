@@ -3,7 +3,7 @@ import Wave from '../../../../../../ui/wave/Wave';
 import WindDirection from '../../../../../../ui/windDirection/WindDirection';
 import numToTemp from '../../../../../../utils/numToTemp';
 import IHourData from '../../../../interfaces/IHourData';
-import WeatherIcon from '../../../weatherIcon/WeatherIcon';
+import WeatherIcon from '../../../../../../ui/weatherIcon/WeatherIcon';
 import './ForecastTableItem.scss'
 
 interface ForecastTableItemProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLDivElement> {
