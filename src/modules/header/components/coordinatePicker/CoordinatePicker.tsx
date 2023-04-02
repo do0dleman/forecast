@@ -33,7 +33,6 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
                 lng: +data![0].lon
             })
         }
-        console.log(data)
     }, [isLoading])
     return (
         <div className={`${className} coordinate-picker`}>
