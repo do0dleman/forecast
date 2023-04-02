@@ -19,9 +19,19 @@
         transform: translate(0, 102%);
         z-index: 1000;
         display: none;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
     &__city-list {
         font-size: 0.7em;
         position: relative;
+        @media (max-width:470px) {
+            font-size: 0.6em;
+        }
+        ul {
+            padding: 0.24em 0;
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--secondary-color);
+            }
+        }
     }
 }
