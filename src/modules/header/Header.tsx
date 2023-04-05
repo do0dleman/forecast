@@ -27,7 +27,3 @@ export default function Header() {
         </header>
     )
 }
-
-function useMedia(): { media: any } {
-    throw new Error('Function not implemented.')
-}
