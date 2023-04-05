@@ -20,7 +20,7 @@ export default function calcCardSubtitle(day: number) {
                     return 'Friday'
                 case 6:
                     return 'Saturday'
-                case 7:
+                case 0:
                     return 'Sunday'
                 default:
                     return 'Error'

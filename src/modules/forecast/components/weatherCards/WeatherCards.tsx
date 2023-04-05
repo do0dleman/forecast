@@ -4,7 +4,7 @@ import numToTemp from "../../../../utils/numToTemp"
 import timeToDate from "../../../../utils/timeToDate"
 import { forecastContext } from "../forecastContext/ForecastContextProvider"
 import WeatherIcon from "../../../../ui/weatherIcon/WeatherIcon"
-import calcCardSubtitle from "./utils/calcCardSubtitle"
+import calcCardSubtitle from "../../../../utils/calcCardSubtitle"
 import WeatherCard from "./WeatherCard"
 
 export default function WeatherCards() {
