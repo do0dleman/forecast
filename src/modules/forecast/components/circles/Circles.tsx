@@ -59,8 +59,11 @@ export default function Circles() {
 
     return (
         <>
-            {circleStyles.map((style) =>
-                <BgCircle key={JSON.stringify(style)} style={style} />)}
+            {circleStyles.map((style, i) =>
+                <BgCircle
+                    custom={i}
+                    key={JSON.stringify(style)}
+                    style={style} />)}
         </>
     )
 }
