@@ -8,6 +8,10 @@
     position: relative;
     overflow: hidden;
     text-shadow: 0 0 .6em var(--sub-color);
+}
+.--wave-block {
+    position: absolute;
+    inset: 0;
     svg {
         z-index: -1;
         width: 200%;
@@ -19,7 +23,20 @@
     }
     svg:nth-child(2) {
         left: 99%;
-        fill: var(--wave-color);
+    }
+    &:nth-child(2) {
+        z-index: -2;
+        svg {
+            fill: var(--wave-color-2);
+            animation: wave 12s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+        }
+    }
+    &:nth-child(3) {
+        z-index: -3;
+        svg {
+            fill: var(--wave-color-3);
+            animation: wave 8s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+        }
     }
 }
 @keyframes wave {

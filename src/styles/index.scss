@@ -26,7 +26,9 @@ body {
   --active-color-hover-2: hsl(280, 87%, 48%);
   --active-color-active: hsl(218, 72%, 43%);
   --active-color-active-2: hsl(280, 87%, 43%);
-  --wave-color: #003F7C;
+  --wave-color: hsl(210, 100%, 30%);
+  --wave-color-2: hsl(210, 100%, 25%);
+  --wave-color-3: hsl(210, 100%, 20%);
   --border-radius: 1.4em;
   
   background-color: var(--background-color);
@@ -56,7 +58,9 @@ body {
   --active-color-hover-2: hsl(280, 87%, 68%);
   --active-color-active: hsl(218, 72%, 63%);
   --active-color-active-2: hsl(280, 87%, 63%);
-  --wave-color: hsl(210, 100%, 44%);
+  --wave-color: hsl(210, 100%, 50%);
+  --wave-color-2: hsl(210, 100%, 45%);
+  --wave-color-3: hsl(210, 100%, 40%);
   --border-radius: 1.4em;
 }
 h1, h2, h3, h4, h5, h6 {
