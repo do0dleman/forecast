@@ -4,11 +4,12 @@ import ForecastTable from './components/forecastTable/ForecastTable'
 import Circles from './components/circles/Circles'
 import WeatherCards from './components/weatherCards/WeatherCards'
 import ForecastContextProvider from './components/forecastContext/ForecastContextProvider'
+import Section from '../../components/Section/Section'
 
 export default function Forecast() {
 
     return (
-        <section className='foreacst'>
+        <Section className='foreacst'>
             <Container className='forecast__container'>
                 <ForecastContextProvider>
                     <WeatherCards />
@@ -16,6 +17,6 @@ export default function Forecast() {
                     <Circles />
                 </ForecastContextProvider>
             </Container>
-        </section>
+        </Section>
     )
 }

@@ -1,6 +1,7 @@
+import { HTMLMotionProps, motion } from 'framer-motion'
 import './Box.scss'
 
-interface BoxProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLDivElement> {
+interface BoxProps extends HTMLMotionProps<"div"> {
     className?: string
 }
 export default function Box(props: BoxProps) {
@@ -8,8 +9,10 @@ export default function Box(props: BoxProps) {
     const { className, children, ...rest } = props
 
     return (
-        <div className={`${className} --box`} {...rest}>
+        <motion.div
+            className={`${className} --box`}
+            {...rest}>
             {children}
-        </div>
+        </motion.div>
     )
 }

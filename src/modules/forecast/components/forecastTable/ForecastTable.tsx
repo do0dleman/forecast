@@ -7,8 +7,9 @@ import timeToDate from '../../../../utils/timeToDate'
 import { forecastContext } from '../forecastContext/ForecastContextProvider'
 import ForecastTableItem from './components/ForecastTableItem/ForecastTableItem'
 import './ForecastTable.scss'
+import { HTMLMotionProps, Variants } from 'framer-motion'
 
-interface ForecastTableProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLDivElement> {
+interface ForecastTableProps extends HTMLMotionProps<"div"> {
 }
 export default function ForecastTable(props: ForecastTableProps) {
 
@@ -29,13 +30,29 @@ export default function ForecastTable(props: ForecastTableProps) {
             setStep(3)
         }
     }, [media])
-    // console.log(firstHour)
-    // console.log(lastHour)
+
+    const TableAnimation: Variants = {
+        hidden: {
+            x: 100,
+            opacity: 0,
+        },
+        visible: delay => ({
+            x: 0,
+            opacity: 1,
+            transition: {
+                delay: delay * 0.07
+            }
+        })
+    }
+
     let HoursData = currentData.hourly
     let HoursDatas = getHoursDatas(
         currentData.hourly, firstHour, lastHour, step)
     return (
-        <Box className='forecast__table weather-table' {...rest}>
+        <Box className='forecast__table weather-table'
+            variants={TableAnimation}
+            custom={2}
+            {...rest}>
             <h4 className="weather-table__main-title">
                 {timeToDate(currentData.daily.time[curentDay])}
             </h4>

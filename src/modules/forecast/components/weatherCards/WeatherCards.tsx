@@ -26,6 +26,7 @@ export default function WeatherCards() {
                     weatherCode={currentWeather.weathercode
                     } />}
                 isActive={false}
+                custom={1}
             />
             <WeatherCard
                 className='forecast__card'
@@ -43,6 +44,7 @@ export default function WeatherCards() {
                 }}
                 isActive={true}
                 subTitle={calcCardSubtitle(curentDay)}
+                custom={2}
             />
             <WeatherCard
                 className='forecast__card'
@@ -60,6 +62,7 @@ export default function WeatherCards() {
                 }}
                 isActive={true}
                 subTitle={calcCardSubtitle(curentDay + 1)}
+                custom={3}
             />
         </div>
     )
