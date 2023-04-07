@@ -23,7 +23,6 @@ export default function BgCircle(props: BgCircleProps) {
                 mass: 1,
                 stiffness: 100,
                 duration: .7,
-                ease: 'easeOut',
                 delay: delay * 0.07 + 0.07 * 5,
             },
         })

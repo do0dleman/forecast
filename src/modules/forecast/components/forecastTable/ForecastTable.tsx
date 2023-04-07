@@ -7,7 +7,7 @@ import timeToDate from '../../../../utils/timeToDate'
 import { forecastContext } from '../forecastContext/ForecastContextProvider'
 import ForecastTableItem from './components/ForecastTableItem/ForecastTableItem'
 import './ForecastTable.scss'
-import { HTMLMotionProps, Variants } from 'framer-motion'
+import { AnimatePresence, HTMLMotionProps, Variants } from 'framer-motion'
 
 interface ForecastTableProps extends HTMLMotionProps<"div"> {
 }
@@ -67,7 +67,8 @@ export default function ForecastTable(props: ForecastTableProps) {
                         minTemp={Math.min(
                             ...(HoursData.temperature_2m
                                 .slice(0, lastHour + 1)))}
-                        hourData={hourData} />
+                        hourData={hourData}
+                        custom={i} />
                 )}
             </div>
         </Box>

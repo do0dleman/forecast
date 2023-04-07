@@ -5,8 +5,9 @@ import numToTemp from '../../../../../../utils/numToTemp';
 import IHourData from '../../../../interfaces/IHourData';
 import WeatherIcon from '../../../../../../ui/weatherIcon/WeatherIcon';
 import './ForecastTableItem.scss'
+import { HTMLMotionProps, Variants, motion } from 'framer-motion';
 
-interface ForecastTableItemProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLDivElement> {
+interface ForecastTableItemProps extends HTMLMotionProps<"div"> {
     hourData: IHourData
     showName?: boolean
     maxTemp: number
@@ -16,8 +17,29 @@ export default function ForecastTableItem(props: ForecastTableItemProps) {
 
     const { hourData, minTemp, showName, maxTemp, ...rest } = props
 
+    const itemAimation: Variants = {
+        initial: {
+            opacity: 0,
+            y: 100
+        },
+        animate: delay => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 12,
+                mass: 1,
+                stiffness: 100,
+                delay: delay * 0.03,
+            },
+        })
+    }
     return (
-        <div className='weather-table__item' {...rest}>
+        <motion.div className='weather-table__item'
+            initial={'initial'}
+            animate={'animate'}
+            variants={itemAimation}
+            {...rest}>
             <section className="weather-table__top">
                 <h5 className="weather-table__title">
                     {hourData.time.slice(-5)}
@@ -56,6 +78,6 @@ export default function ForecastTableItem(props: ForecastTableItemProps) {
                     className='weather-table__precipitation-item'
                     precipitation={hourData.precipitation} />
             </section>
-        </div>
+        </motion.div>
     )
 }
