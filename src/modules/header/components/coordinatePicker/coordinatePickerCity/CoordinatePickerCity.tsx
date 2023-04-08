@@ -16,7 +16,7 @@ export default function CoordinatePickerCity(
     const { cityName, displayName, coord, ...rest } = props
     const { settings, dispatchSettings } = useContext(SettingsContext)
 
-    function HandleButtonClick() {
+    function HandleButtonClick(e: React.MouseEvent) {
         dispatchSettings({
             type: 'setCoordinates',
             payload: { cityName, coord }

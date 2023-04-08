@@ -6,19 +6,12 @@
         width: 8em;
         position: relative;
 	}
-    &__input:focus + .coordinate-picker__cities {
-        display: block;
-    }
-    .coordinate-picker__cities:hover {
-        display: block;
-    }
     &__cities {
         position: absolute;
         bottom: 0;
         left: 0;
         transform: translate(0, 102%);
         z-index: 1000;
-        display: none;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
     &__city-list {

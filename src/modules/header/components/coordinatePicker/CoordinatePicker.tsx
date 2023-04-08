@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import SettingsContext from '../../../../contexts/SettingsContext';
 import './CoordinatePicker.scss'
 import useFetch from 'react-fetch-hook';
@@ -16,11 +16,16 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
 
     const { settings } = useContext(SettingsContext)
     const [cityName, setCityName] = useState(settings.cityName)
+    const [showCities, setShowCities] = useState(false)
+    const [isCitiesHover, setCitiesHover] = useState(false)
     const [cityLocation, setCityLocation] = useState(settings.coord)
+
+    const inputRef = useRef<HTMLInputElement>(null)
 
     const { data, isLoading, error } = useFetch<typeof ForwarGeocoding>(
         `https://geocode.maps.co/search?q={${cityName}}`,
         { depends: [cityName] })
+
     useEffect(() => {
         if (isLoading) return
         if (error) {
@@ -34,29 +39,57 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
             })
         }
     }, [isLoading])
+
+    function HandleFocus() {
+        setShowCities(true)
+    }
+    function HandleBlur() {
+        if (isCitiesHover) {
+            setTimeout(() => {
+                inputRef.current?.focus()
+            }, 1)
+            return
+        }
+        setShowCities(false)
+    }
     return (
         <div className={`${className} coordinate-picker`}>
             <input
                 className='coordinate-picker__input'
                 type="text"
+                onFocus={HandleFocus}
+                onBlur={HandleBlur}
                 value={cityName}
+                ref={inputRef}
                 onChange={(e) => {
                     setCityName(e.target.value)
-                }} />
-            <Box className='coordinate-picker__cities'>
-                <ul className='coordinate-picker__city-list'>
-                    {data?.length! > 0 ? data!.map((item) =>
-                        <CoordinatePickerCity
-                            key={item.place_id}
-                            cityName={cityName}
-                            displayName={item.display_name}
-                            coord={{
-                                lat: +item.lat,
-                                lng: +item.lon
-                            }} />) :
-                        <span>Not Found</span>}
-                </ul>
-            </Box>
+                }} >
+
+            </input>
+            {showCities ?
+                <Box
+                    onMouseEnter={(e) => {
+                        setCitiesHover(true)
+                    }}
+                    onMouseLeave={(e) => {
+                        setCitiesHover(false)
+                    }}
+                    className='coordinate-picker__cities'>
+                    <ul
+                        className='coordinate-picker__city-list'>
+                        {data?.length! > 0 ?
+                            data!.map((item) =>
+                                <CoordinatePickerCity
+                                    key={item.place_id}
+                                    cityName={cityName}
+                                    displayName={item.display_name}
+                                    coord={{
+                                        lat: +item.lat,
+                                        lng: +item.lon
+                                    }} />) :
+                            <span>Not Found</span>}
+                    </ul>
+                </Box> : <></>}
         </div>
     )
 }
