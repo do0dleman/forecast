@@ -18,16 +18,45 @@ export default function SettingsContextProvider(
                     cityName: action.payload.cityName
                 }
             case 'setTimezone':
+                localStorage.setItem('settings', JSON.stringify({
+                    ...state,
+                    timeZoneId: action.payload
+                }))
                 return {
                     ...state,
                     timeZoneId: action.payload
                 }
+            case 'setSettings':
+                return {
+                    ...state,
+                    ...action.payload
+                }
+            case 'setTheme':
+                localStorage.setItem('settings', JSON.stringify({
+                    ...state,
+                    theme: action.payload
+                }))
+                return {
+                    ...state,
+                    theme: action.payload
+                }
         }
     }
+    useEffect(() => {
+        if (localStorage.settings) {
+            console.log(JSON.parse(localStorage.getItem('settings')!))
+            dispatchSettings({
+                type: 'setSettings',
+                payload: JSON.parse(localStorage.getItem('settings')!)
+            })
+        }
+    }, [])
+
     const [settings, dispatchSettings] = useReducer(
         reducer, deafultSettings)
 
-    const { data, isLoading, error } = useFetch<typeof timeZoneData>(`https://api.wheretheiss.at/v1/coordinates/${settings.coord.lat},${settings.coord.lng}`,
+    const { data, isLoading, error } = useFetch<typeof timeZoneData>(
+        `https://api.wheretheiss.at/v1/coordinates/${settings.coord.lat},${settings.coord.lng}`,
         { depends: [settings.coord] })
 
     useEffect(() => {
@@ -42,9 +71,11 @@ export default function SettingsContextProvider(
         })
     }, [isLoading])
 
-
     return (
-        <SettingsContext.Provider value={{ settings, dispatchSettings }}>
+        <SettingsContext.Provider value={{
+            settings,
+            dispatchSettings
+        }}>
             {children}
         </SettingsContext.Provider>
     )

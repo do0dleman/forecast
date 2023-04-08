@@ -22,9 +22,10 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
 
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const { data, isLoading, error } = useFetch<typeof ForwarGeocoding>(
-        `https://geocode.maps.co/search?q={${cityName}}`,
-        { depends: [cityName] })
+    const { data, isLoading, error } =
+        useFetch<typeof ForwarGeocoding>(
+            `https://geocode.maps.co/search?q={${cityName}}`,
+            { depends: [cityName] })
 
     useEffect(() => {
         if (isLoading) return
@@ -39,6 +40,10 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
             })
         }
     }, [isLoading])
+
+    useEffect(() => {
+        setCityName(settings.cityName)
+    }, [settings.cityName])
 
     function HandleFocus() {
         setShowCities(true)

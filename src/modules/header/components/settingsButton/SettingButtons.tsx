@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import WeatherIcon from '../../../../ui/weatherIcon/WeatherIcon'
 import './SettingButton.scss'
+import SettingsContext from '../../../../contexts/SettingsContext'
 
 interface SettingsButtonProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLButtonElement> {
     className?: string
@@ -8,7 +9,10 @@ interface SettingsButtonProps extends React.DetailedHTMLProps<React.HTMLAttribut
 export default function SettingsButton(props: SettingsButtonProps) {
 
     const { className, ...rest } = props
-    const [theme, setTheme] = useState('dark')
+
+    const { settings, dispatchSettings } = useContext(SettingsContext)
+
+    const [theme, setTheme] = useState(settings.theme)
 
     useEffect(() => {
         if (theme === 'dark') {
@@ -17,7 +21,15 @@ export default function SettingsButton(props: SettingsButtonProps) {
         if (theme === 'light') {
             document.body.classList.add('light')
         }
+        dispatchSettings({
+            type: 'setTheme',
+            payload: theme
+        })
     }, [theme])
+
+    useEffect(() => {
+        setTheme(settings.theme)
+    }, [settings.theme])
 
     return (
         <button

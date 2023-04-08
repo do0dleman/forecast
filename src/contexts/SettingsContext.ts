@@ -9,6 +9,10 @@ type actionTypes =
         }
     } | {
         type: 'setTimezone', payload: string
+    } | {
+        type: 'setSettings', payload: typeof deafultSettings
+    } | {
+        type: 'setTheme', payload: string
     }
 
 const deafultSettings = {
