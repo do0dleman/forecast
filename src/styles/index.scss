@@ -2,19 +2,23 @@
 @import './wi/weather-icons-wind.min.scss';
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
 
-button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
+
 ul {
   padding: 0;
   margin: 0;
 }
+
 body {
   --background-color: hsl(218, 10%, 11%);
   --secondary-background-color: hsla(218, 10%, 16%, 0.7);
@@ -30,9 +34,9 @@ body {
   --wave-color-2: hsl(210, 100%, 25%);
   --wave-color-3: hsl(210, 100%, 20%);
   --border-radius: 1.4em;
-  
+
   background-color: var(--background-color);
-  color:var(--secondary-color);
+  color: var(--secondary-color);
   font-size: 1.8em;
   font-family: Open Sans;
   --screen: lg;
@@ -40,13 +44,16 @@ body {
   @media(max-width: 992px) {
     --screen: md;
   }
+
   @media(max-width: 750px) {
     --screen: sm;
   }
+
   @media(max-width: 470px) {
     --screen: xs;
   }
 }
+
 .light {
   --background-color: hsl(218, 10%, 82%);
   --secondary-background-color: hsla(218, 10%, 90%, 0.6);
@@ -63,10 +70,17 @@ body {
   --wave-color-3: hsl(210, 100%, 40%);
   --border-radius: 1.4em;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-size: 1em;
 }
+
 input {
   background-color: transparent;
   border: none;
@@ -76,6 +90,7 @@ input {
   width: 4em;
   outline: none;
   transition: transform 0.3s ease;
+
   &:focus {
     transform: scale(105%);
   }
