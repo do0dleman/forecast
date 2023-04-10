@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react"
 import useFetch from "react-fetch-hook"
 import SettingsContext, { actionTypes, deafultSettings } from "../../contexts/SettingsContext"
-import timeZoneData from '../../assets/timeZonedata.json'
+import timeZoneData from '../../assets/timeZoneData.json'
 
 export default function SettingsContextProvider(
     props: { children: React.ReactNode }) {
