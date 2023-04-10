@@ -38,7 +38,7 @@ export default function Circles() {
             width: '5.3em',
             height: '5.3em',
             bottom: '34%',
-            right: '20%',
+            right: media === 'xs' ? '-120%' : '20%',
         },
         {
             width: '4em',
@@ -66,7 +66,7 @@ export default function Circles() {
             {circleStyles.map((style, i) =>
                 <BgCircle
                     custom={i}
-                    key={JSON.stringify(style)}
+                    key={i}
                     style={style} />)}
         </>
     )
