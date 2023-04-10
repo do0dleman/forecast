@@ -25,7 +25,13 @@ export default function WeatherCards() {
                 icon={<WeatherIcon
                     weatherCode={currentWeather.weathercode
                     } />}
-                isActive={false}
+                onClick={() => {
+                    dispatchCurrentForecast({
+                        type: 'setDay',
+                        payload: 0
+                    })
+                }}
+                isActive={curentDay === 0 ? false : true}
                 custom={1}
             />
             <WeatherCard
@@ -42,7 +48,7 @@ export default function WeatherCards() {
                         payload: 1
                     })
                 }}
-                isActive={true}
+                isActive={curentDay === 0 ? false : true}
                 subTitle={calcCardSubtitle(curentDay)}
                 custom={2}
             />
@@ -60,7 +66,7 @@ export default function WeatherCards() {
                         payload: 1
                     })
                 }}
-                isActive={true}
+                isActive={curentDay === 5 ? false : true}
                 subTitle={calcCardSubtitle(curentDay + 1)}
                 custom={3}
             />
