@@ -10,7 +10,7 @@ export default function Circles() {
             width: '5em',
             height: '5em',
             top: '12%',
-            left: '-2%',
+            left: '-5%',
         },
         {
             width: '3em',
@@ -33,12 +33,15 @@ export default function Circles() {
                 ? '6em' : '0',
             top: '24%',
             left: '40%',
+            display: media === 'lg' || media === 'md' ?
+                'block' : 'none'
         },
         {
             width: '5.3em',
             height: '5.3em',
             bottom: '34%',
-            right: media === 'xs' ? '-120%' : '20%',
+            right: '20%',
+            display: media === 'xs' ? 'none' : 'block'
         },
         {
             width: '4em',
@@ -48,16 +51,17 @@ export default function Circles() {
                 ? '30%' : '10%',
         },
         {
-            width: media === 'lg' || media === 'md'
-                ? '3.6em' : '0',
-            height: media === 'lg' || media === 'md'
-                ? '3.6em' : '0',
+            width: '3.6em',
+            height: '3.6em',
             bottom: '-4%',
             left: '20%',
+            display: media === 'lg' || media === 'md' ?
+                'block' : 'none'
         },
         {
-            top: media === 'xs' ? '-100%' : '-6%',
-            left: '32%'
+            top: '-6%',
+            left: '32%',
+            display: media === 'xs' ? 'none' : 'block'
         }
     ]
 
