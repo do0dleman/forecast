@@ -1,18 +1,18 @@
 import { createContext } from "react";
+import ICoords from "../interfaces/ICoords";
 
 type actionTypes =
     {
         type: 'setCoordinates',
-        payload: {
-            coord: typeof deafultSettings.coord,
-            cityName: string
-        }
+        payload: ICoords,
     } | {
         type: 'setTimezone', payload: string
     } | {
         type: 'setSettings', payload: typeof deafultSettings
     } | {
         type: 'setTheme', payload: string
+    } | {
+        type: 'setCity', payload: string
     }
 
 const deafultSettings = {

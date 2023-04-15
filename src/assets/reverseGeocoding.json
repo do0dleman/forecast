@@ -1,0 +1,23 @@
+{
+    "place_id": 150386997,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "powered_by": "Map Maker: https://maps.co",
+    "osm_type": "way",
+    "osm_id": 195886485,
+    "lat": "11.999962977634024",
+    "lon": "11.99902745092462",
+    "display_name": "Kalallawa Gabai, Ngelzarma, Yobe, Nigeria",
+    "address": {
+        "city": "Kalallawa Gabai",
+        "county": "Ngelzarma",
+        "state": "Yobe",
+        "country": "Nigeria",
+        "country_code": "ng"
+    },
+    "boundingbox": [
+        "11.9947833",
+        "12.0038531",
+        "11.9940267",
+        "12.0003531"
+    ]
+}

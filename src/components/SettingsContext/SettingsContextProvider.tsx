@@ -1,7 +1,7 @@
-import { useEffect, useReducer } from "react"
-import useFetch from "react-fetch-hook"
+import { useEffect, useReducer, useState } from "react"
 import SettingsContext, { actionTypes, deafultSettings } from "../../contexts/SettingsContext"
-import timeZoneData from '../../assets/timeZoneData.json'
+import useTimezone from "../../hooks/useTimezone"
+import fetchCity from "../../utils/fetchFuncitons/fetchCity"
 
 export default function SettingsContextProvider(
     props: { children: React.ReactNode }) {
@@ -14,14 +14,9 @@ export default function SettingsContextProvider(
             case 'setCoordinates':
                 return {
                     ...state,
-                    coord: action.payload.coord,
-                    cityName: action.payload.cityName
+                    coord: action.payload,
                 }
             case 'setTimezone':
-                localStorage.setItem('settings', JSON.stringify({
-                    ...state,
-                    timeZoneId: action.payload
-                }))
                 return {
                     ...state,
                     timeZoneId: action.payload
@@ -32,44 +27,75 @@ export default function SettingsContextProvider(
                     ...action.payload
                 }
             case 'setTheme':
-                localStorage.setItem('settings', JSON.stringify({
-                    ...state,
-                    theme: action.payload
-                }))
                 return {
                     ...state,
                     theme: action.payload
                 }
+            case "setCity":
+                return {
+                    ...state,
+                    cityName: action.payload
+                }
         }
     }
     useEffect(() => {
-        if (localStorage.settings) {
-            console.log(JSON.parse(localStorage.getItem('settings')!))
+        const settings = localStorage.getItem('settings')
+        if (settings) {
             dispatchSettings({
                 type: 'setSettings',
-                payload: JSON.parse(localStorage.getItem('settings')!)
+                payload: JSON.parse(settings)
             })
+        }
+        if (!settings) {
+            const succes = (pos: GeolocationPosition) => {
+                const lat = pos.coords.latitude
+                const lng = pos.coords.longitude
+                dispatchSettings({
+                    type: 'setCoordinates',
+                    payload: { lat, lng }
+                })
+
+            }
+            const error = () => {
+                console.log('error')
+                return
+            }
+            navigator.geolocation.getCurrentPosition(succes, error)
         }
     }, [])
 
     const [settings, dispatchSettings] = useReducer(
         reducer, deafultSettings)
 
-    const { data, isLoading, error } = useFetch<typeof timeZoneData>(
-        `https://api.wheretheiss.at/v1/coordinates/${settings.coord.lat},${settings.coord.lng}`,
-        { depends: [settings.coord] })
-
     useEffect(() => {
-        if (isLoading) return
-        if (error) {
-            console.log(error)
+        const fetchData = async () => {
+            const cityData = await
+                fetchCity({
+                    lat: settings.coord.lat,
+                    lng: settings.coord.lng
+                })
+            dispatchSettings({
+                type: 'setCity',
+                payload: cityData!.address.city
+            })
+        }
+        fetchData()
+    }, [settings.coord])
+    useEffect(() => {
+        if (JSON.stringify(settings) === JSON.stringify(deafultSettings)) {
             return
         }
+        localStorage.setItem('settings',
+            JSON.stringify(settings))
+    }, [settings])
+
+    const timezone = useTimezone(settings.coord, [settings.coord])
+    useEffect(() => {
         dispatchSettings({
-            type: "setTimezone",
-            payload: data!.timezone_id
+            type: 'setTimezone',
+            payload: timezone
         })
-    }, [isLoading])
+    }, [timezone])
 
     return (
         <SettingsContext.Provider value={{

@@ -5,11 +5,9 @@ import useFetch from 'react-fetch-hook';
 import ForwarGeocoding from '../../../../assets/forwardGeocoding.json'
 import CoordinatePickerCity from './coordinatePickerCity/CoordinatePickerCity';
 import Box from '../../../../components/Box/Box';
-import BgCircle from '../../../../ui/bgCircle/BgCircle';
 
 interface CoordinatePickerProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLDivElement> {
     className?: string
-
 }
 export default function CoordinatePicker(props: CoordinatePickerProps) {
     const { className } = props
@@ -42,7 +40,9 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
     }, [isLoading])
 
     useEffect(() => {
-        setCityName(settings.cityName)
+        if (settings.cityName) {
+            setCityName(settings.cityName)
+        }
     }, [settings.cityName])
 
     function HandleFocus() {

@@ -19,7 +19,7 @@ export default function CoordinatePickerCity(
     function HandleButtonClick(e: React.MouseEvent) {
         dispatchSettings({
             type: 'setCoordinates',
-            payload: { cityName, coord }
+            payload: coord
         })
     }
 
