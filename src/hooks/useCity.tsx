@@ -1,25 +1,24 @@
-import useFetch from "react-fetch-hook"
-import timeZoneData from '../assets/timeZoneData.json'
 import { useEffect, useState } from "react"
 import ICoords from "../interfaces/ICoords"
-import fetchTimezone from "../utils/fetchFuncitons/fetchTimezone"
+import fetchCity from "../utils/fetchFuncitons/fetchCity"
 
 export default function useTimezone(
     coord: ICoords,
     depends: any[],
     returnCondition?: boolean,
 ) {
-    const [timezone_id, setTimezone_id] = useState('UTC')
+    const [city, setCity] = useState<string | undefined>(undefined)
+
 
     useEffect(() => {
         if (returnCondition) return
 
         const fetchData = async () => {
-            const timeZone = await fetchTimezone(coord)
-
-            setTimezone_id(timeZone!.timezone_id)
+            const timeZone = await fetchCity(coord)
+            let data = timeZone!.address.city ? timeZone!.address.city : timeZone!.address.village
+            setCity(data)
         }
         fetchData()
     }, [...depends])
-    return timezone_id
+    return city
 }

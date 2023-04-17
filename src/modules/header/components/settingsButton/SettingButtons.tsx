@@ -21,6 +21,7 @@ export default function SettingsButton(props: SettingsButtonProps) {
         if (theme === 'light') {
             document.body.classList.add('light')
         }
+        if (theme === settings.theme) return
         dispatchSettings({
             type: 'setTheme',
             payload: theme

@@ -2,6 +2,7 @@ import { useEffect, useReducer, useState } from "react"
 import SettingsContext, { actionTypes, deafultSettings } from "../../contexts/SettingsContext"
 import useTimezone from "../../hooks/useTimezone"
 import fetchCity from "../../utils/fetchFuncitons/fetchCity"
+import useCity from "../../hooks/useCity"
 
 export default function SettingsContextProvider(
     props: { children: React.ReactNode }) {
@@ -10,7 +11,10 @@ export default function SettingsContextProvider(
 
     function reducer(state: typeof deafultSettings,
         action: actionTypes) {
+        console.log(state)
+        console.log(action)
         switch (action.type) {
+
             case 'setCoordinates':
                 return {
                     ...state,
@@ -68,20 +72,6 @@ export default function SettingsContextProvider(
         reducer, deafultSettings)
 
     useEffect(() => {
-        const fetchData = async () => {
-            const cityData = await
-                fetchCity({
-                    lat: settings.coord.lat,
-                    lng: settings.coord.lng
-                })
-            dispatchSettings({
-                type: 'setCity',
-                payload: cityData!.address.city
-            })
-        }
-        fetchData()
-    }, [settings.coord])
-    useEffect(() => {
         if (JSON.stringify(settings) === JSON.stringify(deafultSettings)) {
             return
         }
@@ -89,13 +79,23 @@ export default function SettingsContextProvider(
             JSON.stringify(settings))
     }, [settings])
 
-    const timezone = useTimezone(settings.coord, [settings.coord])
+    const timezone = useTimezone(settings.coord, [settings.coord],
+        (settings.coord === deafultSettings.coord))
     useEffect(() => {
         dispatchSettings({
             type: 'setTimezone',
             payload: timezone
         })
     }, [timezone])
+
+    const city = useCity(settings.coord, [settings.coord],
+        (settings.coord === deafultSettings.coord))
+    useEffect(() => {
+        dispatchSettings({
+            type: 'setCity',
+            payload: city
+        })
+    }, [city])
 
     return (
         <SettingsContext.Provider value={{

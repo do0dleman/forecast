@@ -1,8 +1,8 @@
-import { createContext, useContext, useEffect, useState } from 'react'
-import useFetch from 'react-fetch-hook'
+import { useContext, useEffect, useState } from 'react'
 import DataFile from '../../assets/data.json'
 import weatherContext from '../../contexts/WeatherContext'
 import SettingsContext from '../../contexts/SettingsContext'
+import useWeather from '../../hooks/useWeather'
 
 interface WeatherContextProviderProps {
     children: React.ReactNode
@@ -13,21 +13,14 @@ export default function WeatherContextProvider(props: WeatherContextProviderProp
     const { children } = props
 
     const { settings } = useContext(SettingsContext)
-    const { lat, lng } = settings.coord
     const timeZoneId = settings.timeZoneId
-    const { isLoading, data, error } = useFetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation,weathercode,windspeed_10m,winddirection_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_sum,precipitation_hours&current_weather=true&timezone=${timeZoneId}`, {
-        depends: [settings]
-    })
     const [currentData, setCurrentData] = useState(DataFile)
+    const weather = useWeather(
+        settings.coord, timeZoneId, [settings.coord, settings.timeZoneId])
 
     useEffect(() => {
-        if (isLoading) return
-        if (error) {
-            console.log(error)
-            return
-        }
-        setCurrentData(data as typeof DataFile)
-    }, [isLoading])
+        setCurrentData(weather)
+    }, [weather])
 
     return (
         <weatherContext.Provider value={{
