@@ -6,6 +6,7 @@ import { forecastContext } from "../forecastContext/ForecastContextProvider"
 import WeatherIcon from "../../../../ui/weatherIcon/WeatherIcon"
 import calcCardSubtitle from "../../../../utils/calcCardSubtitle"
 import WeatherCard from "./WeatherCard"
+import dateToClockTime from "../../../../utils/dateToClockTime"
 
 export default function WeatherCards() {
 
@@ -13,13 +14,14 @@ export default function WeatherCards() {
     const { currentForecast, dispatchCurrentForecast } = useContext(forecastContext)
     const { curentDay } = currentForecast
 
-    const currentWeather = currentData.current_weather
-    const dailyWeather = currentData.daily
+    const currentWeather = currentData.weather.current_weather
+    const dailyWeather = currentData.weather.daily
 
     return (
         <div className="forecast__weather-cards">
             <WeatherCard
                 className='forecast__card'
+                title={dateToClockTime(currentData.date)}
                 subTitle='Now'
                 activeItem={numToTemp(currentWeather.temperature)}
                 icon={<WeatherIcon

@@ -7,7 +7,7 @@ import { HTMLMotionProps, Variants } from 'framer-motion'
 
 interface WeatherCardProps extends HTMLMotionProps<"div"> {
     className?: string
-    title?: string
+    title: string
     subTitle: string
     activeItem: string
     activeItem2?: string

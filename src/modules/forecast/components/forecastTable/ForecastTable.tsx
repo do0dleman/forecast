@@ -7,7 +7,7 @@ import timeToDate from '../../../../utils/timeToDate'
 import { forecastContext } from '../forecastContext/ForecastContextProvider'
 import ForecastTableItem from './components/ForecastTableItem/ForecastTableItem'
 import './ForecastTable.scss'
-import { AnimatePresence, HTMLMotionProps, Variants } from 'framer-motion'
+import { HTMLMotionProps, Variants } from 'framer-motion'
 
 interface ForecastTableProps extends HTMLMotionProps<"div"> {
 }
@@ -46,16 +46,16 @@ export default function ForecastTable(props: ForecastTableProps) {
         })
     }
 
-    let HoursData = currentData.hourly
+    let HoursData = currentData.weather.hourly
     let HoursDatas = getHoursDatas(
-        currentData.hourly, firstHour, lastHour, step)
+        HoursData, firstHour, lastHour, step)
     return (
         <Box className='forecast__table weather-table'
             variants={TableAnimation}
             custom={2}
             {...rest}>
             <h4 className="weather-table__main-title">
-                {timeToDate(currentData.daily.time[curentDay])}
+                {timeToDate(currentData.weather.daily.time[curentDay])}
             </h4>
             <div className="weather-table__container">
                 {HoursDatas.map((hourData, i) =>

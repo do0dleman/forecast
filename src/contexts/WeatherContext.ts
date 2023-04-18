@@ -1,12 +1,12 @@
 import { createContext } from "react";
-import DataFile from '../assets/data.json'
+import IWeather from "../interfaces/IWeather";
 
 interface IWeatherContext {
-    currentData: typeof DataFile
-    setCurrentData: React.Dispatch<React.SetStateAction<typeof DataFile>>
+    currentData: IWeather
+    setCurrentData: React.Dispatch<React.SetStateAction<IWeather>>
 }
 const weatherContext = createContext<IWeatherContext>({
-    currentData: {} as typeof DataFile,
+    currentData: {} as IWeather,
     setCurrentData: () => { }
 })
 

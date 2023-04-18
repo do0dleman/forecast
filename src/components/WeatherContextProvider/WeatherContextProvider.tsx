@@ -3,6 +3,7 @@ import DataFile from '../../assets/data.json'
 import weatherContext from '../../contexts/WeatherContext'
 import SettingsContext from '../../contexts/SettingsContext'
 import useWeather from '../../hooks/useWeather'
+import IWeather from '../../interfaces/IWeather'
 
 interface WeatherContextProviderProps {
     children: React.ReactNode
@@ -14,7 +15,7 @@ export default function WeatherContextProvider(props: WeatherContextProviderProp
 
     const { settings } = useContext(SettingsContext)
     const timeZoneId = settings.timeZoneId
-    const [currentData, setCurrentData] = useState(DataFile)
+    const [currentData, setCurrentData] = useState<IWeather>({ weather: DataFile, date: new Date() })
     const weather = useWeather(
         settings.coord, timeZoneId, [settings.coord, settings.timeZoneId])
 
