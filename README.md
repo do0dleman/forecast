@@ -1,14 +1,20 @@
 # Forecast web app
 
-This project uses [open-meteo api](https://open-meteo.com/) for the forecast data.
+This is a web forecast app built on React.
+You can see and use the app on github pages [here](https://do0dleman.github.io/forecast/)
 
-<!-- ## Github pages  -->
+## Used APIs
 
-<!-- You can see and use the app on github pages [here](https://do0dleman.github.io/colors/). -->
+This project uses:
+
+* [open-meteo api](https://open-meteo.com/) for forecast data
+* [wheretheiss](https://wheretheiss.at/) for time zone date
+* [geocode maps](https://geocode.maps.co/) for geocoding
+
 ## Upcoming updates
 
 * Soon will be added the ability to change measurment units.
-* Soon will be added the forecast data auto refresh
+* Soon will be added the forecast data refresh.
 
 ## License
 
