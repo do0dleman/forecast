@@ -24,7 +24,8 @@ export default function ForecastTable(props: ForecastTableProps) {
     const [step, setStep] = useState(5)
 
     useEffect(() => {
-        if (media == 'sm' || media == 'xs') {
+        if (media == 'sm' ||
+            media == 'xs') {
             setStep(5)
         } else {
             setStep(3)

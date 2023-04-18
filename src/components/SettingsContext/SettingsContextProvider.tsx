@@ -11,8 +11,6 @@ export default function SettingsContextProvider(
 
     function reducer(state: typeof deafultSettings,
         action: actionTypes) {
-        console.log(state)
-        console.log(action)
         switch (action.type) {
 
             case 'setCoordinates':
@@ -93,7 +91,7 @@ export default function SettingsContextProvider(
     useEffect(() => {
         dispatchSettings({
             type: 'setCity',
-            payload: city
+            payload: city!
         })
     }, [city])
 
