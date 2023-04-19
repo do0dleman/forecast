@@ -15,9 +15,16 @@ export default function WeatherContextProvider(props: WeatherContextProviderProp
 
     const { settings } = useContext(SettingsContext)
     const timeZoneId = settings.timeZoneId
+
     const [currentData, setCurrentData] = useState<IWeather>({ weather: DataFile, date: new Date() })
+    const [update, setUpdate] = useState(true)
+
+    function refreshData() {
+        setUpdate(!update)
+    }
+
     const weather = useWeather(
-        settings.coord, timeZoneId, [settings.coord, settings.timeZoneId])
+        settings.coord, timeZoneId, [settings.coord, settings.timeZoneId, update])
 
     useEffect(() => {
         setCurrentData(weather)
@@ -27,6 +34,7 @@ export default function WeatherContextProvider(props: WeatherContextProviderProp
         <weatherContext.Provider value={{
             currentData,
             setCurrentData,
+            refreshData
         }}>
             {children}
         </weatherContext.Provider>

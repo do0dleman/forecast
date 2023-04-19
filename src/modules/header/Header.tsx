@@ -4,6 +4,7 @@ import CoordinatePicker from './components/coordinatePicker/CoordinatePicker'
 import SettingsButton from './components/settingsButton/SettingButtons'
 import './Header.scss'
 import Section from '../../components/Section/Section'
+import RefreshButton from './refreshButton/RefreshButton'
 
 export default function Header() {
 
@@ -12,7 +13,10 @@ export default function Header() {
             <Container className='header__container'>
                 <Box className='header__box'>
                     <CoordinatePicker />
-                    <SettingsButton />
+                    <div className="header__buttons">
+                        <RefreshButton />
+                        <SettingsButton />
+                    </div>
                 </Box>
             </Container>
         </Section>

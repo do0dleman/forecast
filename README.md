@@ -14,7 +14,7 @@ This project uses:
 ## Upcoming updates
 
 * Soon will be added the ability to change measurment units.
-* Soon will be added the forecast data refresh.
+* ~~Soon will be added the forecast data refresh.~~
 
 ## License
 
