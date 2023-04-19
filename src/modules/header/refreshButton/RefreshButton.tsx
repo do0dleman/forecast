@@ -1,15 +1,10 @@
-import { ForwardRefComponent, HTMLMotionProps, motion, useAnimationControls, useScroll } from 'framer-motion'
+import { motion, useAnimationControls } from 'framer-motion'
 import './refreshButton.scss'
 import weatherContext from '../../../contexts/WeatherContext'
 import { useContext, useEffect, useRef, useState } from 'react'
 
-interface refreshButtonProps extends ForwardRefComponent<HTMLButtonElement, HTMLMotionProps<"button">> {
-    className?: string
-}
+export default function RefreshButton() {
 
-export default function RefreshButton(props: refreshButtonProps) {
-
-    const { className, ...rest } = props
 
     const controls = useAnimationControls()
 
@@ -42,7 +37,6 @@ export default function RefreshButton(props: refreshButtonProps) {
         <motion.button
             animate={controls}
             className={classes}
-            {...rest}
             onClick={HandleClick}
         >
             <i className='wi wi-refresh'></i>
