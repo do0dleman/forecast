@@ -1,6 +1,6 @@
 # Forecast web app
 
-![](https://github.com/do0dleman/forecast/blob/edc07e052098c32cf6a3cb0f0017cc38cafb487b/app.png)
+![](https://github.com/do0dleman/forecast/blob/814848362b8bec5478c3f31a2a9399984d86aa48/app.png)
 This is a web forecast app built on React.
 You can see and use the app on github pages [here](https://do0dleman.github.io/forecast/)
 
