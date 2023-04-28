@@ -3,7 +3,7 @@ export default function calcCardSubtitle(day: number) {
         case 0:
             return 'Today'
         case 1:
-            return 'Tomorow'
+            return 'Tomorrow'
         default:
             const weekDay =
                 (new Date().getDay() + day) % 7
