@@ -48,7 +48,7 @@ export default function ForecastTable(props: ForecastTableProps) {
 
     let HoursData = currentData.weather.hourly
     let HoursDatas = getHoursDatas(
-        HoursData, firstHour, lastHour, step)
+        HoursData, firstHour, lastHour, false ? step : 1)
     return (
         <Box className='forecast__table weather-table'
             variants={TableAnimation}

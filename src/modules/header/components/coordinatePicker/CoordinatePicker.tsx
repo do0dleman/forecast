@@ -5,6 +5,7 @@ import useFetch from 'react-fetch-hook';
 import ForwarGeocoding from '../../../../assets/forwardGeocoding.json'
 import CoordinatePickerCity from './coordinatePickerCity/CoordinatePickerCity';
 import Box from '../../../../components/Box/Box';
+import { useDebounce } from '../../../../hooks/useDebounce';
 
 interface CoordinatePickerProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLDivElement> {
     className?: string
@@ -18,12 +19,14 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
     const [isCitiesHover, setCitiesHover] = useState(false)
     const [cityLocation, setCityLocation] = useState(settings.coord)
 
+    const debounced = useDebounce(cityName)
+
     const inputRef = useRef<HTMLInputElement>(null)
 
     const { data, isLoading, error } =
         useFetch<typeof ForwarGeocoding>(
-            `https://geocode.maps.co/search?q={${cityName}}`,
-            { depends: [cityName] })
+            `https://geocode.maps.co/search?q={${debounced}}`,
+            { depends: [debounced] })
 
     useEffect(() => {
         if (isLoading) return
@@ -68,9 +71,8 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
                 ref={inputRef}
                 onChange={(e) => {
                     setCityName(e.target.value)
-                }} >
+                }} />
 
-            </input>
             {showCities ?
                 <Box
                     onMouseEnter={(e) => {
