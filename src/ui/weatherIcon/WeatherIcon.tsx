@@ -10,7 +10,7 @@ export default function WeatherIcon(props: WeatherIconProps) {
     const { className, weatherCode, hour, ...rest } = props
 
     let timeOfDay
-    if (!hour) {
+    if (hour === undefined) {
         timeOfDay = 'day'
     }
     if (hour) {
