@@ -8,6 +8,7 @@ import { forecastContext } from '../forecastContext/ForecastContextProvider'
 import ForecastTableItem from './components/ForecastTableItem/ForecastTableItem'
 import './ForecastTable.scss'
 import { HTMLMotionProps, Variants } from 'framer-motion'
+import ShowAllButton from './components/ShowAllButton/ShowAllButton'
 
 interface ForecastTableProps extends HTMLMotionProps<"div"> {
 }
@@ -22,6 +23,7 @@ export default function ForecastTable(props: ForecastTableProps) {
     const { firstHour, lastHour, curentDay } = currentForecast
 
     const [step, setStep] = useState(5)
+    const [isShowAll, setShowAll] = useState(false)
 
     useEffect(() => {
         if (media == 'sm' ||
@@ -48,20 +50,24 @@ export default function ForecastTable(props: ForecastTableProps) {
 
     let HoursData = currentData.weather.hourly
     let HoursDatas = getHoursDatas(
-        HoursData, firstHour, lastHour, false ? step : 1)
+        HoursData, firstHour, lastHour, isShowAll ? 1 : step)
     return (
         <Box className='forecast__table weather-table'
             variants={TableAnimation}
             custom={2}
             {...rest}>
+            <ShowAllButton isShowAll={isShowAll} setShowAll={setShowAll} />
             <h4 className="weather-table__main-title">
                 {timeToDate(currentData.weather.daily.time[curentDay])}
             </h4>
-            <div className="weather-table__container">
+            <div
+                className="weather-table__container"
+                style={{ overflowX: isShowAll ? 'scroll' : 'hidden' }}
+            >
                 {HoursDatas.map((hourData, i) =>
                     <ForecastTableItem
                         showName={i === 0}
-                        key={hourData.time}
+                        key={`${hourData.time}-${hourData.winddirection_10m}`}
                         maxTemp={Math.max(
                             ...(HoursData.temperature_2m
                                 .slice(0, lastHour + 1)))}

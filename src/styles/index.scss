@@ -95,3 +95,73 @@ input {
     transform: scale(105%);
   }
 }
+input[type=checkbox] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+
+  color: currentColor;
+  font: inherit;
+  width: 1.1em;
+  height: 1.1em;
+  transform: translateX(-.3em);
+  border: .16em solid currentColor;
+  background-color: transparent;
+  border-radius: .2em;
+  cursor: pointer;
+  transition: background-color .3s ease,
+              box-shadow .3s ease,
+              opacity .3s ease;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:checked {
+    background-image: linear-gradient(125deg, 
+        var(--active-color), var(--active-color-2));
+        border: none;
+    box-shadow: 0 .03em .12em -.01em var(--active-color-active-2);
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 18%;
+      left: 50%;
+      width: 35%;
+      height: 70%;
+      transform: translate(-50%, 0) rotate(45deg) scale(90%);
+      $thickness: .2em;
+      border-bottom: $thickness solid currentColor;
+      border-right: $thickness solid currentColor;
+    }
+  }
+}
+::-webkit-scrollbar {
+  height: 0.5em;
+  width: 0.5em;
+}
+::-webkit-scrollbar-track {
+  border-radius: 100vw;
+  background-color: var(--background-color);
+  margin: .6em;
+
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-background-color);
+  border-radius: 100vw;
+  // border: .12em solid var(--background-color);
+  transition: all .3s ease;
+  &:hover {
+    background-color: color-mix(in srgb, var(--background-color) 10%, var(--secondary-background-color) 90%)
+  }
+  &:active {
+    background-color: color-mix(in srgb, var(--background-color) 20%, var(--secondary-background-color) 80%)
+  }
+}
+
+body {
+  scrollbar-color: var(--secondary-background-color) var(--background-color) ;
+  scrollbar-gutter: stable;
+}

@@ -2,13 +2,26 @@
     
     grid-row: 1/ span 3;
     grid-column-start: 2;
-	overflow: hidden;
-
+    overflow: hidden;
+    position: relative;
     &__container {
         display: flex;
         justify-content: space-between;
         position: relative;
+        overflow-x: scroll;
+        overflow-y: hidden;
 
+        &::-webkit-scrollbar {
+            height: 1em;
+        }
+        &::-webkit-scrollbar-track {
+            border: .15em solid transparent;
+            background-clip: content-box;
+        }
+        &::-webkit-scrollbar-thumb {
+            border: .27em solid transparent;
+            background-clip: content-box;       // really important 
+        }
     }
     &__main-title {
         font-size: 1.4em;
