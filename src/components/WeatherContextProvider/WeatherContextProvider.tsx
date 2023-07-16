@@ -30,6 +30,10 @@ export default function WeatherContextProvider(props: WeatherContextProviderProp
         setCurrentData(weather)
     }, [weather])
 
+    useEffect(() => {
+        window.onfocus = refreshData
+    }, [])
+
     return (
         <weatherContext.Provider value={{
             currentData,

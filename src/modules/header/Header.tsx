@@ -14,7 +14,7 @@ export default function Header() {
                 <Box className='header__box'>
                     <CoordinatePicker />
                     <div className="header__buttons">
-                        <RefreshButton />
+                        {/* <RefreshButton /> */}
                         <SettingsButton />
                     </div>
                 </Box>
