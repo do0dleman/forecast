@@ -12,10 +12,13 @@ This project uses:
 * [wheretheiss](https://wheretheiss.at/) for time zone date
 * [geocode maps](https://geocode.maps.co/) for geocoding
 
-## Upcoming updates
+## Features
 
-* Soon will be added the ability to change measurment units.
-* ~~Soon will be added the forecast data refresh.~~
+* Dark and light themes
+* Automatic data refetch
+* Location picker
+* 7 day weather forecast
+* 1 hour period weather data
 
 ## License
 
