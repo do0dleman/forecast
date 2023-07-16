@@ -1,5 +1,5 @@
 import Container from '../../components/Container/Container'
-import MediaContextProvider from '../../components/mediaContextProvider/MediaContextProvider'
+import MediaContextProvider from '../../components/MediaContextProvider/MediaContextProvider'
 import Section from '../../components/Section/Section'
 import SettingsContextProvider from '../../components/SettingsContext/SettingsContextProvider'
 import WeatherContextProvider from '../../components/WeatherContextProvider/WeatherContextProvider'
