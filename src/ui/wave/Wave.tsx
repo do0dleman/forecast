@@ -8,7 +8,7 @@ interface WaveProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLEle
 export default function Wave(props: WaveProps) {
 
     const { className, children, precipitation, ...rest } = props
-    const top = Math.min(100 - precipitation / 5 * 100, 100)
+    const top = Math.min((1 - Math.log10(precipitation + 1)) * 100, 100)
     return (
         <div className={`${className} --wave`} {...rest}>
             {precipitation}
