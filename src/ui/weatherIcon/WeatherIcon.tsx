@@ -13,8 +13,8 @@ export default function WeatherIcon(props: WeatherIconProps) {
     if (hour === undefined) {
         timeOfDay = 'day'
     }
-    if (hour) {
-        if (hour > 8 && hour < 20) {
+    if (Number.isInteger(hour)) {
+        if (hour! > 8 && hour! < 20) {
             timeOfDay = 'day'
         } else {
             timeOfDay = 'night-alt'

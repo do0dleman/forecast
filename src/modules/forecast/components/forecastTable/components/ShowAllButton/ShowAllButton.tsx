@@ -11,6 +11,7 @@ export default function ShowAllButton(props: ShowAllButtonProps) {
 
     return (
         <div className='weather-table__check-box' {...rest}>
+            <label htmlFor="ShowAll">Show all</label>
             <input
                 type="checkbox"
                 name="ShowAll"
@@ -20,7 +21,6 @@ export default function ShowAllButton(props: ShowAllButtonProps) {
                 checked={isShowAll}
                 onChange={() => { setShowAll(!isShowAll) }}
             />
-            <label htmlFor="ShowAll">Show all</label>
 
         </div>
     )
