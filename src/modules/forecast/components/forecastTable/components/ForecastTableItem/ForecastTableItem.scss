@@ -5,12 +5,25 @@
         align-items: center;
         flex: 1 1 auto;
         min-width: 9%;
+        @media(max-width: 992px) {
+            min-width: 11%;
+        }
+        @media(max-width: 750px) {
+            min-width: 16%;
+        }
+        @media(max-width: 470px) {
+            min-width: 17%
+        }
+        
         &:not(:last-child) {
             margin-right: 0.4em;
         }
     }
     &__title {
         font-weight: 500;
+        @media(max-width: 470px) {
+            font-size: 0.9em;
+        }
     }
     section {
         width: 100%;
