@@ -31,7 +31,7 @@ export default function WeatherContextProvider(props: WeatherContextProviderProp
     }, [weather])
 
     useEffect(() => {
-        window.onfocus = refreshData
+        window.addEventListener("focus", refreshData)
     }, [])
 
     return (
