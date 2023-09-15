@@ -61,7 +61,7 @@ export default function ForecastTableItem(props: ForecastTableItemProps) {
             </section>
             <section className="weather-table__wind">
                 {showName ? <span className="weather-table__section-header">
-                    wind, km/h
+                    Wind, km/h
                 </span> : <></>}
                 <WindDirection
                     className='weather-table__wind-direction'
