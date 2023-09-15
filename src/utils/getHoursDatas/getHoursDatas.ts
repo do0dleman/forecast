@@ -20,8 +20,9 @@ export default function getHoursDatas(
         'relativehumidity_2m',
         'apparent_temperature',
         'windspeed_10m',
-        'winddirection_10m'
     ]
+    HoursData.winddirection_10m =
+        HoursData.winddirection_10m.map(deg => deg < 180 ? deg : deg - 360)
     for (let i = firstHour / step; i <= lastHour / step; i += 1) {
         let stepData = {} as any
         for (const key in HoursData) {
@@ -40,6 +41,11 @@ export default function getHoursDatas(
                     i, step
                 )
                 continue
+            }
+            if (key === 'winddirection_10m') {
+                let degrees = HoursData[key as
+                    keyof typeof HoursData] as number[]
+                stepData[key] = calcIntervalSum(degrees, i, step)
             }
             if (key === 'time') {
                 stepData[key] = HoursData
