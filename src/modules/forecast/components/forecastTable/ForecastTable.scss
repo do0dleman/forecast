@@ -28,5 +28,8 @@
         margin-bottom: 0.4em;
         // text-shadow: 0 0 1em var(--sub-color);
         text-align: center;
+        @media(max-width: 750px) {
+            margin-top: .5em;
+        }
     }
 }
