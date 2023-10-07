@@ -4,8 +4,9 @@ interface WindDirectionProps extends React.DetailedHTMLProps<React.HTMLAttribute
 }
 export default function WindDirection(props: WindDirectionProps) {
 
-    const { className, degree, ...rest } = props
+    let { className, degree, ...rest } = props
 
+    if (degree < 0) degree += 360
     return (
         <i className={`${className} 
         wi wi-wind wi from-${degree}-deg`}
