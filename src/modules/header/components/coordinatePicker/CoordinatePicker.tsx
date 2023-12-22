@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import SettingsContext from '../../../../contexts/SettingsContext';
 import './CoordinatePicker.scss'
 import useFetch from 'react-fetch-hook';
-import ForwarGeocoding from '../../../../assets/forwardGeocoding.json'
+import ForwardGeocoding from '../../../../assets/forwardGeocoding.json'
 import CoordinatePickerCity from './coordinatePickerCity/CoordinatePickerCity';
 import Box from '../../../../components/Box/Box';
 import { useDebounce } from '../../../../hooks/useDebounce';
@@ -24,7 +24,7 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
     const inputRef = useRef<HTMLInputElement>(null)
 
     const { data, isLoading, error } =
-        useFetch<typeof ForwarGeocoding>(
+        useFetch<typeof ForwardGeocoding>(
             `https://geocode.maps.co/search?q={${debounced}}`,
             { depends: [debounced] })
 

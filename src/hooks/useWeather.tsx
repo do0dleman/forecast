@@ -9,11 +9,11 @@ export default function useTimezone(
     timeZoneId: string,
     depends: any[]) {
 
-    const [weatherData, setWeatherData] = useState<IWeather>({ weather: DataFile, date: new Date() })
+    const [weatherData, setWeatherData] = useState<IWeather>({ weather: DataFile,})
     useEffect(() => {
         const fetchData = async () => {
             const weather = await fetchWeather(coord, timeZoneId)
-            setWeatherData({ weather: weather!, date: new Date() })
+            setWeatherData({ weather: weather! })
         }
         fetchData()
     }, [...depends])

@@ -7,6 +7,7 @@ import WeatherIcon from "../../../../ui/weatherIcon/WeatherIcon"
 import calcCardSubtitle from "../../../../utils/calcCardSubtitle"
 import WeatherCard from "./WeatherCard"
 import dateToClockTime from "../../../../utils/dateToClockTime"
+import toLocationLocalTime from "../../../../utils/toLocationLocalTime"
 
 export default function WeatherCards() {
 
@@ -21,12 +22,15 @@ export default function WeatherCards() {
         <div className="forecast__weather-cards">
             <WeatherCard
                 className='forecast__card'
-                title={dateToClockTime(currentData.date)}
+                title={dateToClockTime(currentData.weather.utc_offset_seconds)}
                 subTitle='Now'
                 activeItem={numToTemp(currentWeather.temperature)}
-                icon={<WeatherIcon
-                    weatherCode={currentWeather.weathercode
-                    } />}
+                icon={
+                    <WeatherIcon
+                        hour={toLocationLocalTime(Date.now(), currentData.weather.utc_offset_seconds).getHours()}
+                        weatherCode={currentWeather.weathercode
+                        } />
+                }
                 onClick={() => {
                     dispatchCurrentForecast({
                         type: 'setDay',

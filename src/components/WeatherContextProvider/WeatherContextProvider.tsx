@@ -16,7 +16,7 @@ export default function WeatherContextProvider(props: WeatherContextProviderProp
     const { settings } = useContext(SettingsContext)
     const timeZoneId = settings.timeZoneId
 
-    const [currentData, setCurrentData] = useState<IWeather>({ weather: DataFile, date: new Date() })
+    const [currentData, setCurrentData] = useState<IWeather>({ weather: DataFile })
     const [update, setUpdate] = useState(true)
 
     function refreshData() {
