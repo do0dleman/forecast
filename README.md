@@ -4,6 +4,9 @@
 This is a web forecast app built on React.
 You can see and use the app on github pages [here](https://do0dleman.github.io/forecast/)
 
+
+> To run this app locally you must provide api key as an environment variable for geocoding - `VITE_GEOCODE_MAP_API_KEY`
+
 ## Used APIs
 
 This project uses:
