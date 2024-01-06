@@ -23,7 +23,7 @@ jobs:
       - name: Build project
         run: npm run build
         env: 
-          GEOCODE_MAP_API_KEY: ${{ secrets.GEOCODE_MAP_API_KEY }}
+          VITE_GEOCODE_MAP_API_KEY: ${{ secrets.VITE_GEOCODE_MAP_API_KEY }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
