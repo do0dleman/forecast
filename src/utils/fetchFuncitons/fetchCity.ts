@@ -1,5 +1,6 @@
 import ICoords from "../../interfaces/ICoords";
 import reverseGeocodingData from '../../assets/reverseGeocoding.json'
+
 export default async function fetchCity(coord: ICoords):
     Promise<typeof reverseGeocodingData | undefined> {
 
