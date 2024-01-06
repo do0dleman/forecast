@@ -9,7 +9,6 @@ export default function getCurrentLocationClockTime(location_offset: number): st
 
     const time = toLocationLocalTime(Date.now(), location_offset)
 
-    console.log()
     const hours = time.getHours() < 10 ?
         '0' + time.getHours() : time.getHours()
 

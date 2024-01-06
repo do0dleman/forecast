@@ -25,7 +25,7 @@ export default function CoordinatePicker(props: CoordinatePickerProps) {
 
     const { data, isLoading, error } =
         useFetch<typeof ForwardGeocoding>(
-            `https://geocode.maps.co/search?q={${debounced}}`,
+            `https://geocode.maps.co/search?q={${debounced}}&api_key=${import.meta.env.VITE_GEOCODE_MAP_API_KEY}`,
             { depends: [debounced] })
 
     useEffect(() => {
